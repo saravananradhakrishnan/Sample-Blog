@@ -1,0 +1,33 @@
+
+
+  <div class="table-responsive">
+  <table class = "table table-condensed"> 
+<% @posts.each do |post| %>
+<% @user.each do |user| %> 
+<% if user.id == post.user_id%>
+         <tr><td class="post" , width="100px"> Posted by <%= user.email %>:</td>          
+        <td><%= post.body %></td>
+        <td><%=  post.title %></td>
+         </tr>
+         <% end %>
+          <% end %>
+       <% @comments.each do |comment| %>
+        <% if post.id == comment.post_id and !comment.post_id.nil? %> 
+        <tr>
+        <td>Comment:</td>
+        <td><%= comment.body %></td>
+        <td><%= comment.created_at.to_date %></td><td><%#= render :partial => "comments/form" %></td>
+        </tr>
+
+        <% end %> 
+
+    <% end %>
+
+
+          
+    <% end %>
+    
+  </table>1
+</div>
+
+
